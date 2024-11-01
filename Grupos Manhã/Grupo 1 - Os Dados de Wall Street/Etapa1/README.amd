@@ -1,0 +1,85 @@
+# Projeto de Análise Financeira com Jupyter Notebook
+
+
+
+Este projeto utiliza bibliotecas de Python para baixar, limpar e analisar dados históricos de ações, visualizando o comportamento de preços e retornos de ativos financeiros de dois importantes índices: o S&P 100 (EUA) e o Ibovespa (Brasil).
+
+
+
+## Bibliotecas Utilizadas
+
+1. **Pandas**: Facilita o manuseio e a análise de dados tabulares, permitindo trabalhar com DataFrames e realizar operações de filtragem, limpeza e cálculos.
+
+2. **Numpy**: Usada para manipulação numérica e cálculos, sendo especialmente útil na manipulação de arrays numéricos para análise de dados.
+
+3. **Matplotlib**: Fornece ferramentas de visualização, criando gráficos de séries temporais de preços de ações e retornos.
+
+4. **Seaborn**: Biblioteca de visualização baseada no Matplotlib, usada para aprimorar o estilo e a apresentação dos gráficos.
+
+5. **Datetime**: Facilita o manuseio e conversão de datas no contexto da análise temporal de dados financeiros.
+
+6. **Yfinance**: Permite o download de dados financeiros de ações diretamente do Yahoo Finance, simplificando o acesso a informações de mercado.
+
+
+
+## Funcionalidades do Projeto
+
+
+
+### Função `build()`
+
+Esta função principal integra o fluxo do projeto, fazendo o download dos dados, aplicando a limpeza e calculando os retornos diários dos ativos. Os resultados são exportados para um arquivo CSV para análises futuras.
+
+
+
+- **Parâmetros**:
+
+  - `index_ticker`: Ticker do índice de referência (ex: S&P 100).
+
+  - `stock_tickers`: Lista dos tickers das ações a serem analisadas.
+
+  - `start_date` e `end_date`: Período de análise.
+
+  - `max_missing_days`: Define o limite de dias consecutivos ausentes antes de descartar uma ação dos dados.
+
+
+
+### Funções Auxiliares
+
+
+
+- **`download_data()`**: Baixa os dados históricos ajustados de fechamento dos ativos, usando a biblioteca Yfinance.
+
+- **`clean_data()`**: Remove ações com muitos dados ausentes e interpola os valores ausentes das ações restantes.
+
+- **`remove_stocks_with_prolonged_missing_data()`**: Filtra ações com valores ausentes além do limite definido por `max_missing_days`.
+
+- **`calculate_returns()`**: Calcula os retornos diários de cada ativo com base nos dados ajustados de fechamento.
+
+
+
+### Visualizações
+
+As células de visualização criam gráficos das 5 ações de maior peso em cada índice, fornecendo um panorama visual da variação de preços ao longo do tempo.
+
+
+
+- **S&P 100**: Mostra o histórico de preços das ações de maior peso.
+
+- **Ibovespa**: Exibe a variação dos preços das 5 ações mais influentes do índice.
+
+
+
+## Uso
+
+1. Defina os parâmetros como índice de referência, lista de ações, datas de início e término.
+
+2. Execute `build()` para gerar e salvar o dataset.
+
+3. Use as células de visualização para inspecionar as ações principais em cada índice. 
+
+
+
+Este projeto facilita a análise temporal de ativos, fornecendo insights sobre o desempenho passado e servindo como base para projeções e estratégias financeiras.
+
+"""
